@@ -95,7 +95,10 @@ class DoublyLinkedList {
      * Returns the value at position [index].
      */
     fun get(index: Int): Double {
-        if(index > 1000) println("Index exceeds the limit")
+        // if(index > 1000) println("Index exceeds the limit")
+        if (index < 0 || index >= length) {
+            throw IndexOutOfBoundsException("Index $index out of bounds for length $length")
+        }
         var element = begin
         repeat(index) { element = element!!.next }
         return element!!.value
